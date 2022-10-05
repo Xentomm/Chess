@@ -1,3 +1,4 @@
+from turtle import pos
 from const import *
 from square import Square
 from piece import *
@@ -10,6 +11,47 @@ class Board:
         self._create()
         self._add_pieces('white')
         self._add_pieces('black')
+
+    def calc_moves(self, piece, row, col):
+
+        def knight_moves():
+            # 8 possible moves
+            possible_moves = [
+                (row - 2, col + 1),
+                (row - 1, col + 2),
+                (row + 1, col + 2),
+                (row + 2, col + 1),
+                (row + 2, col - 1),
+                (row + 1, col - 2),
+                (row - 1, col - 2),
+                (row - 2, col - 1),
+            ]
+
+            for posibble_move in possible_moves:
+                possible_moves_row, possible_moves_col = possible_moves
+
+                if Square.in_range(possible_moves_row, possible_moves_col):
+                    if self.squares[possible_moves_row, possible_moves_col].is_empty_or_rival(piece.color):
+                        pass
+
+        if isinstance(piece, Pawn):
+            pass
+
+        elif isinstance(piece, Knight):
+            knight_moves()
+
+        elif isinstance(piece, Bishop):
+            pass
+
+        elif isinstance(piece, Rook):
+            pass
+
+        elif isinstance(piece, Queen):
+            pass
+
+        elif isinstance(piece, King):
+            pass
+
 
     def _create(self):
 
