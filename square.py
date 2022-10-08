@@ -27,6 +27,6 @@ class Square:
             if arg < 0 or arg > 7:
                 return False
         
-        return False
+        return True
 
 

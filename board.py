@@ -1,7 +1,9 @@
 from turtle import pos
 from const import *
+from move import Move
 from square import Square
 from piece import *
+from move import Move
 
 class Board:
 
@@ -27,12 +29,17 @@ class Board:
                 (row - 2, col - 1),
             ]
 
-            for posibble_move in possible_moves:
-                possible_moves_row, possible_moves_col = possible_moves
+            for possible_move in possible_moves:
+                possible_move_row, possible_move_col = possible_move
 
-                if Square.in_range(possible_moves_row, possible_moves_col):
-                    if self.squares[possible_moves_row, possible_moves_col].is_empty_or_rival(piece.color):
-                        pass
+                if Square.in_range(possible_move_row, possible_move_col):
+                    if self.squares[possible_move_row][possible_move_col].is_empty_or_rival(piece.color):
+                        initial = Square(row, col)
+                        final = Square(possible_move_row, possible_move_col)
+
+                        #move
+                        move = Move(initial, final)
+                        piece.add_move(move)
 
         if isinstance(piece, Pawn):
             pass
