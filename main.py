@@ -107,7 +107,13 @@ class Main:
                     if event.key == pygame.K_t:
                         # change theme
                         game.change_theme()
-
+                    if event.key == pygame.K_r:
+                        # reset
+                        game.reset()
+                        game = self.game
+                        board = self.game.board
+                        dragger = self.game.dragger
+                    
                 elif event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
