@@ -14,7 +14,7 @@ class Config:
         self.move_sound = Sound(
             os.path.join('assets/sounds/move.wav'))
 
-        self.captrue_sound = Sound(
+        self.capture_sound = Sound(
             os.path.join('assets/sounds/capture.wav'))
         
 
