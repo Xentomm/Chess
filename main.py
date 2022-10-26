@@ -86,9 +86,13 @@ class Main:
                         move = Move(initial, final)
 
                         if board.valid_move(dragger.piece, move):
+                            # normal capture
                             captured = board.squares[relased_row][relased_col].has_piece()
 
                             board.move(dragger.piece, move)
+
+                            board.set_true_en_passant(dragger.piece)
+
                             # sound
                             game.play_sound(captured)
 
